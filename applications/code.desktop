@@ -1,0 +1,10 @@
+[Desktop Entry]
+
+Name=VS Code
+Comment= Code Editing. Redefined
+Exec=/opt/vscode/code %F
+Icon=/opt/vscode/icon.png
+Terminal=false
+Type=Application
+Categories=Development;IDE;
+StartupWClass=Code
