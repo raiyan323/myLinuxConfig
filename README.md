@@ -4,7 +4,7 @@ A minimal, clean, and keyboard-driven **Arch Linux + Hyprland** setup.
 
 Built for a lightweight Wayland desktop with the essentials for development, browsing, media, screenshots, wallpapers, and daily use.
 
-![Hyprland Setup](screenshots/s1.png)
+![Hyprland Setup](screenshots/kittyfastfetch.png)
 
 ## ✨ Features
 
@@ -28,17 +28,21 @@ Built for a lightweight Wayland desktop with the essentials for development, bro
 
 ### Desktop
 
-![Screenshot 1](screenshots/s1.png)
+![Screenshot 1](screenshots/desktop.png)
 
 ### Applications
 
-![Screenshot 2](screenshots/s2.png)
+![Screenshot 2](screenshots/wofi.png)
 
 ### Terminal
 
-![Screenshot 3](screenshots/s3.png)
+![Screenshot 3](screenshots/kitty.png)
 
 ---
+
+### Fastfetch
+
+![Screenshot 2](screenshots/fastfetch.png)
 
 ## 📦 Packages
 
