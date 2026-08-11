@@ -24,7 +24,7 @@ local terminal    = "kitty"
 local fileManager = "dolphin"
 local browser     = "firefox"
 local picker      = "hyprpicker -a"
-local menu = "wofi --show drun --allow-images"
+local menu = "pgrep -x wofi >/dev/null || wofi --show drun --width 600 --height 400 --location top --allow-images --hide-scroll"
 
 
 -- ==============================================================
