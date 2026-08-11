@@ -1,0 +1,10 @@
+width=600
+height=400
+location=top
+show=drun
+allow_images=true
+prompt=Search
+hide_scroll=true
+matching=fuzzy
+insensitive=true
+gtk_dark=true

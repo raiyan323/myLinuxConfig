@@ -1,0 +1,86 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 43,
+  "spacing": 6,
+  "modules-left": ["custom/logo", "hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "memory",
+    "cpu",
+    "pulseaudio",
+    "network",
+    "battery",
+    "tray"
+  ],
+  "custom/logo": {
+    "format": "󰣇",
+    "tooltip": false,
+    "on-click": "wofi --show drun"
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "active": "󰮯",
+      "urgent": "!"
+    },
+    "disable-scroll": false,
+    "all-outputs": true,
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "*": 4
+    }
+  },
+  "clock": {
+    "format": "󰥔  {:%a  %d %b  •  %H:%M}",
+    "tooltip": false
+  },
+  "memory": {
+    "interval": 5,
+    "format": "  {percentage}%",
+    "tooltip-format": "Memory: {used:0.1f} GiB / {total:0.1f} GiB"
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "󰍛  {usage}%",
+    "tooltip-format": "CPU Usage: {usage}%"
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰝟  Muted",
+    "format-bluetooth": "  {volume}%",
+    "scroll-step": 5,
+    "format-icons": {
+      "default": ["", "", ""]
+    }
+  },
+  "network": {
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "󰈀  Ethernet",
+    "format-disconnected": "󰤮  Offline",
+    "tooltip-format": "{ifname}\n{ipaddr}"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-plugged": "󰚥  {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  }
+}
