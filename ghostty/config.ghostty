@@ -1,0 +1,17 @@
+# ~/.config/ghostty/config
+
+background = #0b0b12
+foreground = #d8d8ff
+cursor-color = #b98cff
+selection-background = #302050
+
+font-family = JetBrainsMono Nerd Font
+font-size = 12
+
+window-padding-x = 12
+window-padding-y = 12
+background-opacity = 0.92
+
+shell-integration = detect
+
+command = fastfetch

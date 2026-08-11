@@ -1,0 +1,591 @@
+/* ============================================================
+   SWAYNC — Minimal / Clean
+   ============================================================ */
+
+:root {
+  --cc-bg: #0a161f;
+
+  --noti-border-color: rgba(148, 188, 251, 0.18);
+
+  --noti-bg: 49, 50, 68;
+  --noti-bg-alpha: 0.92;
+
+  --noti-bg-darker: rgb(24, 24, 37);
+  --noti-bg-hover: rgb(69, 71, 90);
+  --noti-bg-focus: rgba(69, 71, 90, 0.55);
+
+  --noti-close-bg: rgb(69, 71, 90);
+  --noti-close-bg-hover: rgb(243, 139, 168);
+
+  --text-color: rgb(205, 214, 244);
+  --text-color-disabled: rgb(127, 132, 156);
+
+  --bg-selected: rgb(137, 180, 250);
+
+  --notification-icon-size: 48px;
+  --notification-app-icon-size: 16px;
+  --notification-group-icon-size: 28px;
+
+  --border: 1px solid var(--noti-border-color);
+  --border-radius: 12px;
+
+  --notification-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+
+  --font-size-body: 13px;
+  --font-size-summary: 14px;
+
+  --hover-transition: background 0.15s ease-in-out;
+
+  --group-collapse-transition: opacity 250ms ease-in-out;
+}
+
+/* ============================================================
+   GTK FALLBACK COLORS
+   ============================================================ */
+
+@define-color cc-bg rgba(30, 30, 46, 0.94);
+@define-color noti-border-color rgba(137, 180, 250, 0.18);
+
+@define-color noti-bg rgba(49, 50, 68, 0.92);
+@define-color noti-bg-opaque rgb(49, 50, 68);
+
+@define-color noti-bg-darker rgb(24, 24, 37);
+@define-color noti-bg-hover rgb(69, 71, 90);
+@define-color noti-bg-hover-opaque rgb(69, 71, 90);
+
+@define-color noti-bg-focus rgba(69, 71, 90, 0.55);
+
+@define-color noti-close-bg rgba(69, 71, 90, 0.9);
+@define-color noti-close-bg-hover rgba(243, 139, 168, 0.9);
+
+@define-color text-color rgb(205, 214, 244);
+@define-color text-color-disabled rgb(127, 132, 156);
+
+@define-color bg-selected rgb(137, 180, 250);
+
+/* ============================================================
+   WINDOWS
+   ============================================================ */
+
+notificationwindow,
+blankwindow {
+  background: transparent;
+}
+
+/* ============================================================
+   CLOSE BUTTON
+   ============================================================ */
+
+.close-button {
+  background: var(--noti-close-bg);
+  color: var(--text-color);
+
+  padding: 0;
+  margin-top: 7px;
+  margin-right: 7px;
+
+  border: none;
+  border-radius: 50%;
+
+  min-width: 22px;
+  min-height: 22px;
+
+  box-shadow: none;
+}
+
+.close-button:hover {
+  background: var(--noti-close-bg-hover);
+  color: #1e1e2e;
+}
+
+/* ============================================================
+   NOTIFICATION ROW
+   ============================================================ */
+
+.notification-row {
+  background: transparent;
+  outline: none;
+}
+
+.notification-row:focus {
+  background: transparent;
+}
+
+.notification-row .notification-background {
+  padding: 5px 8px;
+}
+
+/* ============================================================
+   NOTIFICATION
+   ============================================================ */
+
+.notification-row .notification-background .notification {
+  background: rgba(var(--noti-bg), var(--noti-bg-alpha));
+
+  border: var(--border);
+  border-radius: var(--border-radius);
+
+  padding: 0;
+
+  box-shadow: var(--notification-shadow);
+
+  transition: var(--hover-transition);
+}
+
+/* ============================================================
+   DEFAULT ACTION
+   ============================================================ */
+
+.notification-row
+  .notification-background
+  .notification
+  .notification-default-action {
+  background: transparent;
+
+  border: none;
+  border-radius: var(--border-radius);
+
+  padding: 6px;
+
+  color: var(--text-color);
+
+  box-shadow: none;
+
+  transition: var(--hover-transition);
+}
+
+.notification-row
+  .notification-background
+  .notification
+  .notification-default-action:hover {
+  background: var(--noti-bg-hover);
+}
+
+/* ============================================================
+   NOTIFICATION CONTENT
+   ============================================================ */
+
+.notification-content {
+  background: transparent;
+  border-radius: var(--border-radius);
+  padding: 2px;
+}
+
+/* ============================================================
+   ICONS
+   ============================================================ */
+
+.notification-content .image {
+  -gtk-icon-filter: none;
+  -gtk-icon-size: var(--notification-icon-size);
+
+  margin: 4px;
+}
+
+.notification-content .app-icon {
+  -gtk-icon-filter: none;
+  -gtk-icon-size: var(--notification-app-icon-size);
+
+  margin: 4px;
+}
+
+/* ============================================================
+   TEXT
+   ============================================================ */
+
+.notification-content .text-box label {
+  filter: none;
+}
+
+.notification-content .summary {
+  font-size: var(--font-size-summary);
+  font-weight: bold;
+
+  color: var(--text-color);
+
+  background: transparent;
+}
+
+.notification-content .time {
+  font-size: 11px;
+  font-weight: normal;
+
+  color: var(--text-color-disabled);
+
+  background: transparent;
+
+  margin-right: 24px;
+}
+
+.notification-content .body {
+  font-size: var(--font-size-body);
+  font-weight: normal;
+
+  color: var(--text-color);
+
+  background: transparent;
+}
+
+/* ============================================================
+   INLINE REPLY
+   ============================================================ */
+
+.inline-reply-entry {
+  background: var(--noti-bg-darker);
+  color: var(--text-color);
+
+  border: var(--border);
+  border-radius: 8px;
+
+  padding: 6px;
+}
+
+.inline-reply-button {
+  background: var(--noti-bg);
+  color: var(--text-color);
+
+  border: var(--border);
+  border-radius: 8px;
+
+  margin-left: 4px;
+}
+
+.inline-reply-button:hover {
+  background: var(--noti-bg-hover);
+}
+
+/* ============================================================
+   ACTION BUTTONS
+   ============================================================ */
+
+.notification-alt-actions {
+  background: transparent;
+
+  padding: 4px;
+
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+.notification-action {
+  margin: 3px;
+  padding: 0;
+}
+
+.notification-action > button {
+  background: transparent;
+
+  color: var(--text-color);
+
+  border: none;
+  border-radius: 8px;
+
+  padding: 6px 10px;
+}
+
+.notification-action > button:hover {
+  background: var(--noti-bg-hover);
+}
+
+/* ============================================================
+   GROUPS
+   ============================================================ */
+
+.notification-group {
+  background: transparent;
+  transition: var(--group-collapse-transition);
+}
+
+.notification-group:focus {
+  background: transparent;
+}
+
+.notification-group-buttons,
+.notification-group-headers {
+  margin: 0 12px;
+  color: var(--text-color);
+}
+
+.notification-group-headers .notification-group-icon {
+  color: var(--text-color);
+  -gtk-icon-size: var(--notification-group-icon-size);
+}
+
+.notification-group.collapsed.not-expanded {
+  opacity: 0.45;
+}
+
+.notification-group.collapsed
+  .notification-row:not(:last-child)
+  .notification-action,
+.notification-group.collapsed
+  .notification-row:not(:last-child)
+  .notification-default-action {
+  opacity: 0;
+}
+
+/* ============================================================
+   CONTROL CENTER
+   ============================================================ */
+
+.control-center {
+  background: var(--cc-bg);
+  color: var(--text-color);
+
+  border: 1px solid var(--noti-border-color);
+  border-radius: 14px;
+
+  padding: 6px;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+.control-center .control-center-list {
+  background: transparent;
+}
+
+.control-center .control-center-list-placeholder {
+  color: var(--text-color-disabled);
+  opacity: 0.7;
+}
+
+.control-center .control-center-list .notification {
+  box-shadow: none;
+}
+
+/* ============================================================
+   FLOATING NOTIFICATIONS
+   ============================================================ */
+
+.floating-notifications {
+  background: transparent;
+}
+
+.floating-notifications .notification {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ============================================================
+   WIDGETS
+   ============================================================ */
+
+.widget {
+  margin: 5px;
+  padding: 6px;
+
+  border-radius: 10px;
+}
+
+/* ============================================================
+   TITLE
+   ============================================================ */
+
+.widget-title > label {
+  margin-right: 6px;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  color: var(--text-color);
+}
+
+.widget-title > button {
+  margin-left: 6px;
+
+  background: var(--noti-bg);
+  color: var(--text-color);
+
+  border: none;
+  border-radius: 8px;
+
+  padding: 5px 9px;
+}
+
+.widget-title > button:hover {
+  background: var(--bg-selected);
+  color: #1e1e2e;
+}
+
+/* ============================================================
+   DO NOT DISTURB
+   ============================================================ */
+
+.widget-dnd {
+  background: transparent;
+}
+
+.widget-dnd label {
+  color: var(--text-color);
+
+  margin-right: 6px;
+  font-size: 13px;
+}
+
+.widget-dnd switch {
+  background: var(--noti-bg-darker);
+
+  border-radius: 10px;
+}
+
+.widget-dnd switch:checked {
+  background: var(--bg-selected);
+}
+
+.widget-dnd switch slider {
+  border-radius: 50%;
+}
+
+/* ============================================================
+   LABEL
+   ============================================================ */
+
+.widget-label > label {
+  font-size: 13px;
+  color: var(--text-color);
+}
+
+/* ============================================================
+   MPRIS
+   ============================================================ */
+
+.widget-mpris {
+  padding: 0;
+}
+
+.widget-mpris .widget-mpris-player {
+  margin: 5px;
+
+  border-radius: 10px;
+
+  box-shadow: none;
+}
+
+.widget-mpris .mpris-background {
+  filter: blur(8px);
+}
+
+.widget-mpris .mpris-overlay {
+  padding: 10px;
+
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.widget-mpris .mpris-overlay button:hover {
+  background: var(--noti-bg-hover);
+}
+
+.widget-mpris .widget-mpris-album-art {
+  border-radius: 8px;
+
+  -gtk-icon-size: 72px;
+}
+
+.widget-mpris .widget-mpris-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.widget-mpris .widget-mpris-subtitle {
+  font-size: 11px;
+  color: var(--text-color-disabled);
+}
+
+/* ============================================================
+   BUTTON GRID
+   ============================================================ */
+
+.widget-buttons-grid flowboxchild > button {
+  background: var(--noti-bg);
+
+  border: none;
+  border-radius: 9px;
+
+  min-width: 38px;
+  min-height: 38px;
+
+  margin: 3px;
+}
+
+.widget-buttons-grid flowboxchild > button:hover {
+  background: var(--noti-bg-hover);
+}
+
+.widget-buttons-grid flowboxchild > button.toggle:checked {
+  background: var(--bg-selected);
+  color: #1e1e2e;
+}
+
+/* ============================================================
+   VOLUME
+   ============================================================ */
+
+.widget-volume {
+  background: transparent;
+}
+
+.widget-volume row image {
+  -gtk-icon-size: 22px;
+}
+
+/* ============================================================
+   SLIDERS
+   ============================================================ */
+
+.widget-slider label {
+  font-size: inherit;
+}
+
+scale trough {
+  background: var(--noti-bg-darker);
+  border-radius: 6px;
+
+  min-height: 5px;
+}
+
+scale highlight {
+  background: var(--bg-selected);
+  border-radius: 6px;
+}
+
+scale slider {
+  background: var(--text-color);
+
+  min-width: 12px;
+  min-height: 12px;
+
+  border-radius: 50%;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+scrollbar {
+  background: transparent;
+}
+
+scrollbar slider {
+  background: rgba(166, 173, 200, 0.35);
+
+  border-radius: 8px;
+
+  min-width: 5px;
+}
+
+scrollbar slider:hover {
+  background: rgba(137, 180, 250, 0.7);
+}
+
+/* ============================================================
+   INHIBITORS
+   ============================================================ */
+
+.widget-inhibitors > label {
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+.widget-inhibitors > button {
+  margin-left: 6px;
+  border-radius: 8px;
+}

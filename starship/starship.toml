@@ -1,0 +1,53 @@
+
+add_newline = false
+
+format = """
+[╭─](bold green)[](bold blue) \
+[ $username](bold green)\
+[@](dimmed green)\
+$hostname\
+[ :: ](dimmed green)\
+$directory\
+$git_branch\
+$git_status
+[╰─](bold green)$character"""
+
+[username]
+show_always = true
+style_user = "bold bright-green"
+format = "[$user]($style)"
+
+[hostname]
+ssh_only = false
+style = "bold bright-green"
+format = "[$hostname]($style)"
+
+[directory]
+style = "bold bright-cyan"
+format = "[$path]($style)"
+truncation_length = 4
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = " ⌁ "
+style = "bold bright-magenta"
+format = "[$symbol$branch]($style)"
+
+[git_status]
+style = "bold bright-red"
+format = " [$all_status$ahead_behind]($style)"
+
+[character]
+success_symbol = "[❯](bold bright-green)"
+error_symbol = "[✘](bold bright-red)"
+vimcmd_symbol = "[❮](bold bright-cyan)"
+
+[cmd_duration]
+min_time = 1000
+format = " [◄ $duration](bold yellow)"
+
+[time]
+disabled = false
+format = " [󰥔 $time](dimmed green)"
+time_format = "%H:%M:%S"
+
