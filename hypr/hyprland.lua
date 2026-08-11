@@ -677,7 +677,7 @@ hl.bind(
     mainMod .. " + V",
     function()
         hl.exec_cmd(
-            "cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+            "cliphist list | fuzzel | cliphist decode | wl-copy"
         )
     end
 )
