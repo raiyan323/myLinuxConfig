@@ -476,7 +476,7 @@ hl.bind(
 
 -- Toggle floating
 hl.bind(
-    mainMod .. " + X",
+    mainMod .. " + V",
     hl.dsp.window.float({
         action = "toggle",
     })
@@ -666,20 +666,6 @@ hl.bind(
     {
         mouse = true,
     }
-)
-
-
--- ==============================================================
--- CLIPBOARD HISTORY
--- ==============================================================
-
-hl.bind(
-    mainMod .. " + V",
-    function()
-        hl.exec_cmd(
-            "cliphist list | fuzzel | cliphist decode | wl-copy"
-        )
-    end
 )
 
 
