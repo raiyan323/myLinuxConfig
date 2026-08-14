@@ -1,0 +1,61 @@
+[terminal]
+shell = { program = "/usr/bin/fish", args = ["-l"] }
+
+[window]
+padding = { x = 14, y = 12 }
+opacity = 0.92
+decorations = "None"
+
+[font]
+normal = { family = "JetBrains Mono Nerd Font", style = "Regular" }
+bold = { family = "JetBrains Mono Nerd Font", style = "Bold" }
+italic = { family = "JetBrains Mono Nerd Font", style = "Italic" }
+size = 12.0
+
+[scrolling]
+history = 10000
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+blink_interval = 550
+
+[selection]
+save_to_clipboard = true
+
+[colors.primary]
+background = "#080C0A"
+foreground = "#D0D8D4"
+
+[colors.cursor]
+text = "#080C0A"
+cursor = "#52E38A"
+
+[colors.selection]
+text = "#E8FFF1"
+background = "#163526"
+
+[colors.normal]
+black = "#080C0A"
+red = "#E06C75"
+green = "#52E38A"
+yellow = "#D9C76C"
+blue = "#6CA8D9"
+magenta = "#B48EAD"
+cyan = "#58C7B9"
+white = "#C8D0CC"
+
+[colors.bright]
+black = "#4A5751"
+red = "#F08088"
+green = "#7AF5A7"
+yellow = "#EBDD82"
+blue = "#8AC4F0"
+magenta = "#D0A8CB"
+cyan = "#7BE3D5"
+white = "#F0F5F2"
+
+[keyboard]
+bindings = [
+    { key = "PageUp", action = "ScrollPageUp" },
+    { key = "PageDown", action = "ScrollPageDown" }
+]

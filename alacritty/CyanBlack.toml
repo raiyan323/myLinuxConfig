@@ -1,0 +1,170 @@
+# ============================================================
+# RAIYAN // MODERN HACKER
+# Dark Graphite • Electric Cyan • Cyber Security
+# ============================================================
+
+[terminal]
+shell = { program = "/usr/bin/fish", args = ["-l"] }
+
+
+# ============================================================
+# WINDOW
+# ============================================================
+
+[window]
+padding = { x = 16, y = 14 }
+opacity = 0.94
+decorations = "None"
+
+
+# ============================================================
+# FONT
+# ============================================================
+
+[font]
+
+normal = {
+    family = "JetBrains Mono Nerd Font",
+    style = "Regular"
+}
+
+bold = {
+    family = "JetBrains Mono Nerd Font",
+    style = "Bold"
+}
+
+italic = {
+    family = "JetBrains Mono Nerd Font",
+    style = "Italic"
+}
+
+size = 12.0
+
+
+# ============================================================
+# SCROLLING
+# ============================================================
+
+[scrolling]
+history = 10000
+
+
+# ============================================================
+# CURSOR
+# ============================================================
+
+[cursor]
+
+style = {
+    shape = "Beam",
+    blinking = "On"
+}
+
+blink_interval = 600
+
+
+# ============================================================
+# SELECTION
+# ============================================================
+
+[selection]
+save_to_clipboard = true
+
+
+# ============================================================
+# PRIMARY
+# ============================================================
+
+[colors.primary]
+
+# Deep graphite / almost black
+background = "#070A0E"
+
+# Cool terminal white
+foreground = "#D9E2EA"
+
+
+# ============================================================
+# CURSOR
+# ============================================================
+
+[colors.cursor]
+
+text = "#070A0E"
+cursor = "#35E6FF"
+
+
+# ============================================================
+# SELECTION
+# ============================================================
+
+[colors.selection]
+
+text = "#E8FCFF"
+background = "#12313A"
+
+
+# ============================================================
+# NORMAL COLORS
+# ============================================================
+
+[colors.normal]
+
+# Black
+black = "#070A0E"
+
+# Error / danger
+red = "#FF5C70"
+
+# Success / command output
+green = "#4DDB91"
+
+# Warning
+yellow = "#D7C968"
+
+# Information
+blue = "#4D9FE6"
+
+# Accent
+magenta = "#A77BE0"
+
+# Main hacker accent
+cyan = "#35CFE6"
+
+# Normal text
+white = "#B8C6D1"
+
+
+# ============================================================
+# BRIGHT COLORS
+# ============================================================
+
+[colors.bright]
+
+black = "#46515B"
+
+red = "#FF7182"
+
+green = "#6EF2AA"
+
+yellow = "#E9DC7A"
+
+blue = "#70BFFF"
+
+magenta = "#C29AFF"
+
+cyan = "#67E9FF"
+
+white = "#EDF5FA"
+
+
+# ============================================================
+# KEYBOARD
+# ============================================================
+
+[keyboard]
+
+bindings = [
+    { key = "PageUp", action = "ScrollPageUp" },
+    { key = "PageDown", action = "ScrollPageDown" }
+]
