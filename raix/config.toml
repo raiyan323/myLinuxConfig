@@ -1,0 +1,62 @@
+# waylaunch — Raiyan Hacker / Cyberpunk Theme
+
+width = 720
+height = 520
+
+# Position
+anchor = "center"
+margin_top = 80
+
+# Layout
+padding = 20
+row_height = 44
+max_results = 12
+
+# Rounded cyber panel
+corner_radius = 0
+border_width = 1
+
+# Icons
+show_icons = true
+icon_size = 30
+icon_gap = 14
+
+# Font
+# Leave empty to use the automatic fallback font.
+font_path = ""
+
+font_size = 17.0
+prompt_font_size = 22.0
+
+# ============================================================
+# CYBERPUNK / HACKER COLORS
+# ============================================================
+
+# Deep space / terminal background
+background = "#070b12"
+opacity = 0.80
+
+# Main text
+foreground = "#b8c7d9"
+
+# Search prompt — electric cyan
+prompt_color = "#67e8f9"
+
+# Selected item
+selected_bg = "#102a3a"
+selected_fg = "#e6fbff"
+
+# Neon cyan border
+border_color = "#22d3ee"
+
+# Search box
+search_background = "#0b1622"
+
+# ============================================================
+# UI
+# ============================================================
+
+show_hint = true
+
+# Terminal used for Terminal=true applications
+terminal = "kitty"

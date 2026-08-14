@@ -3,29 +3,26 @@
 -- ║                  Clean • Modern • Minimal                   ║
 -- ╚══════════════════════════════════════════════════════════════╝
 
-
 -- ==============================================================
 -- MONITORS
 -- ==============================================================
 
 hl.monitor({
-    output = "",
-    mode = "preferred",
-    position = "auto",
-    scale = "auto",
+	output = "",
+	mode = "preferred",
+	position = "auto",
+	scale = "auto",
 })
-
 
 -- ==============================================================
 -- PROGRAMS
 -- ==============================================================
 
-local terminal    = "kitty"
+local terminal = "kitty"
 local fileManager = "dolphin"
-local browser     = "firefox"
-local picker      = "hyprpicker -a"
-local menu = "pgrep -x wofi >/dev/null || wofi --show drun --width 600 --height 400 --location top --allow-images --hide-scroll"
-
+local browser = "firefox"
+local picker = "hyprpicker -a"
+local menu = "raix"
 
 -- ==============================================================
 -- ENVIRONMENT
@@ -37,25 +34,23 @@ hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
-
 -- ==============================================================
 -- AUTOSTART
 -- ==============================================================
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("waybar")
-    hl.exec_cmd("hyprpaper")
-    hl.exec_cmd("swaync")
-    hl.exec_cmd("hypridle")
+	hl.exec_cmd("raixbar")
+	hl.exec_cmd("hyprpaper")
+	hl.exec_cmd("swaync")
+	hl.exec_cmd("hypridle")
 
-    -- Clipboard history
-    hl.exec_cmd("wl-paste --type text --watch cliphist store")
-    hl.exec_cmd("wl-paste --type image --watch cliphist store")
+	-- Clipboard history
+	hl.exec_cmd("wl-paste --type text --watch cliphist store")
+	hl.exec_cmd("wl-paste --type image --watch cliphist store")
 
-    -- Cursor
-    hl.exec_cmd("hyprctl setcursor Bibata-Modern-Classic 24")
+	-- Cursor
+	hl.exec_cmd("hyprctl setcursor Bibata-Modern-Classic 24")
 end)
-
 
 -- ==============================================================
 -- GENERAL
@@ -63,246 +58,224 @@ end)
 
 hl.config({
 
-    general = {
+	general = {
 
-        -- Window spacing
-        gaps_in  = 2,
-        gaps_out = 4,
+		-- Window spacing
+		gaps_in = 4,
+		gaps_out = 8,
 
-        -- Borders
-        border_size = 2,
+		-- Borders
+		border_size = 2,
 
-        col = {
-            active_border = {
-                colors = {
-                    "0xff89b4faff",
-                    "0xffcba6f7ff",
-                },
-                angle = 45,
-            },
+		col = {
+			active_border = {
+				colors = {
+					"0xff89b4faff",
+					"0xffcba6f7ff",
+				},
+				angle = 45,
+			},
 
-            inactive_border = "0x66545464",
-        },
+			inactive_border = "0x66545464",
+		},
 
-        resize_on_border = false,
+		resize_on_border = false,
 
-        allow_tearing = false,
+		allow_tearing = false,
 
-        layout = "dwindle",
-    },
+		layout = "dwindle",
+	},
 
+	-- ==========================================================
+	-- DECORATION
+	-- ==========================================================
 
-    -- ==========================================================
-    -- DECORATION
-    -- ==========================================================
+	decoration = {
 
-    decoration = {
+		rounding = 14,
+		rounding_power = 2,
 
-        rounding = 12,
-        rounding_power = 2,
+		active_opacity = 0.94,
+		inactive_opacity = 0.88,
 
-        active_opacity = 0.94,
-        inactive_opacity = 0.88,
+		shadow = {
+			enabled = false,
 
-        shadow = {
-            enabled = false,
+			range = 18,
+			render_power = 3,
 
-            range = 18,
-            render_power = 3,
+			color = "0xaa000000",
+		},
 
-            color = "0xaa000000",
-        },
+		blur = {
+			enabled = true,
 
-        blur = {
-            enabled = true,
+			size = 1,
+			passes = 1,
 
-            size = 1,
-            passes = 1,
+			vibrancy = 0.20,
+		},
+	},
 
-            vibrancy = 0.20,
-        },
-    },
+	-- ==========================================================
+	-- ANIMATIONS
+	-- ==========================================================
 
-
-    -- ==========================================================
-    -- ANIMATIONS
-    -- ==========================================================
-
-    animations = {
-        enabled = true,
-    },
-
+	animations = {
+		enabled = true,
+	},
 })
-
 
 -- ==============================================================
 -- ANIMATION CURVES
 -- ==============================================================
 
 hl.curve("easeOutQuint", {
-    type = "bezier",
+	type = "bezier",
 
-    points = {
-        { 0.23, 1 },
-        { 0.32, 1 },
-    },
+	points = {
+		{ 0.23, 1 },
+		{ 0.32, 1 },
+	},
 })
-
 
 hl.curve("easeInOutCubic", {
-    type = "bezier",
+	type = "bezier",
 
-    points = {
-        { 0.65, 0.05 },
-        { 0.36, 1 },
-    },
+	points = {
+		{ 0.65, 0.05 },
+		{ 0.36, 1 },
+	},
 })
-
 
 hl.curve("almostLinear", {
-    type = "bezier",
+	type = "bezier",
 
-    points = {
-        { 0.5, 0.5 },
-        { 0.75, 1 },
-    },
+	points = {
+		{ 0.5, 0.5 },
+		{ 0.75, 1 },
+	},
 })
-
 
 hl.curve("quick", {
-    type = "bezier",
+	type = "bezier",
 
-    points = {
-        { 0.15, 0 },
-        { 0.1, 1 },
-    },
+	points = {
+		{ 0.15, 0 },
+		{ 0.1, 1 },
+	},
 })
-
 
 -- Smooth spring
 hl.curve("smoothSpring", {
-    type = "spring",
+	type = "spring",
 
-    mass = 1,
-    stiffness = 85,
-    dampening = 14,
+	mass = 1,
+	stiffness = 85,
+	dampening = 14,
 })
-
 
 -- ==============================================================
 -- ANIMATIONS
 -- ==============================================================
 
 hl.animation({
-    leaf = "global",
-    enabled = true,
-    speed = 10,
-    bezier = "default",
+	leaf = "global",
+	enabled = true,
+	speed = 10,
+	bezier = "default",
 })
-
 
 hl.animation({
-    leaf = "windows",
-    enabled = true,
-    speed = 5,
-    spring = "smoothSpring",
+	leaf = "windows",
+	enabled = true,
+	speed = 5,
+	spring = "smoothSpring",
 })
-
 
 hl.animation({
-    leaf = "windowsIn",
-    enabled = true,
-    speed = 4,
-    spring = "smoothSpring",
-    style = "popin 85%",
+	leaf = "windowsIn",
+	enabled = true,
+	speed = 4,
+	spring = "smoothSpring",
+	style = "popin 85%",
 })
-
 
 hl.animation({
-    leaf = "windowsOut",
-    enabled = true,
-    speed = 3,
-    bezier = "almostLinear",
-    style = "popin 85%",
+	leaf = "windowsOut",
+	enabled = true,
+	speed = 3,
+	bezier = "almostLinear",
+	style = "popin 85%",
 })
-
 
 hl.animation({
-    leaf = "fadeIn",
-    enabled = true,
-    speed = 2,
-    bezier = "almostLinear",
+	leaf = "fadeIn",
+	enabled = true,
+	speed = 2,
+	bezier = "almostLinear",
 })
-
 
 hl.animation({
-    leaf = "fadeOut",
-    enabled = true,
-    speed = 2,
-    bezier = "almostLinear",
+	leaf = "fadeOut",
+	enabled = true,
+	speed = 2,
+	bezier = "almostLinear",
 })
-
 
 hl.animation({
-    leaf = "fade",
-    enabled = true,
-    speed = 3,
-    bezier = "quick",
+	leaf = "fade",
+	enabled = true,
+	speed = 3,
+	bezier = "quick",
 })
-
 
 hl.animation({
-    leaf = "layers",
-    enabled = true,
-    speed = 4,
-    bezier = "easeOutQuint",
+	leaf = "layers",
+	enabled = true,
+	speed = 4,
+	bezier = "easeOutQuint",
 })
-
 
 hl.animation({
-    leaf = "layersIn",
-    enabled = true,
-    speed = 4,
-    bezier = "easeOutQuint",
-    style = "fade",
+	leaf = "layersIn",
+	enabled = true,
+	speed = 4,
+	bezier = "easeOutQuint",
+	style = "fade",
 })
-
 
 hl.animation({
-    leaf = "layersOut",
-    enabled = true,
-    speed = 2,
-    bezier = "almostLinear",
-    style = "fade",
+	leaf = "layersOut",
+	enabled = true,
+	speed = 2,
+	bezier = "almostLinear",
+	style = "fade",
 })
-
 
 hl.animation({
-    leaf = "workspaces",
-    enabled = true,
-    speed = 3,
-    bezier = "easeInOutCubic",
-    style = "fade",
+	leaf = "workspaces",
+	enabled = true,
+	speed = 3,
+	bezier = "easeInOutCubic",
+	style = "fade",
 })
-
 
 hl.animation({
-    leaf = "workspacesIn",
-    enabled = true,
-    speed = 3,
-    bezier = "easeInOutCubic",
-    style = "fade",
+	leaf = "workspacesIn",
+	enabled = true,
+	speed = 3,
+	bezier = "easeInOutCubic",
+	style = "fade",
 })
-
 
 hl.animation({
-    leaf = "workspacesOut",
-    enabled = true,
-    speed = 3,
-    bezier = "easeInOutCubic",
-    style = "fade",
+	leaf = "workspacesOut",
+	enabled = true,
+	speed = 3,
+	bezier = "easeInOutCubic",
+	style = "fade",
 })
-
 
 -- ==============================================================
 -- DWINDLE
@@ -310,12 +283,10 @@ hl.animation({
 
 hl.config({
 
-    dwindle = {
-        preserve_split = true,
-    },
-
+	dwindle = {
+		preserve_split = true,
+	},
 })
-
 
 -- ==============================================================
 -- MASTER
@@ -323,12 +294,10 @@ hl.config({
 
 hl.config({
 
-    master = {
-        new_status = "master",
-    },
-
+	master = {
+		new_status = "master",
+	},
 })
-
 
 -- ==============================================================
 -- SCROLLING
@@ -336,12 +305,10 @@ hl.config({
 
 hl.config({
 
-    scrolling = {
-        fullscreen_on_one_column = true,
-    },
-
+	scrolling = {
+		fullscreen_on_one_column = true,
+	},
 })
-
 
 -- ==============================================================
 -- MISC
@@ -349,17 +316,15 @@ hl.config({
 
 hl.config({
 
-    misc = {
+	misc = {
 
-        -- Keep Hyprland's default wallpaper behavior
-        force_default_wallpaper = -1,
+		-- Keep Hyprland's default wallpaper behavior
+		force_default_wallpaper = -1,
 
-        -- Keep Hyprland logo / splash
-        disable_hyprland_logo = false,
-    },
-
+		-- Keep Hyprland logo / splash
+		disable_hyprland_logo = false,
+	},
 })
-
 
 -- ==============================================================
 -- INPUT
@@ -367,36 +332,33 @@ hl.config({
 
 hl.config({
 
-    input = {
+	input = {
 
-        kb_layout = "us",
-        kb_variant = "",
-        kb_model = "",
-        kb_options = "",
-        kb_rules = "",
+		kb_layout = "us",
+		kb_variant = "",
+		kb_model = "",
+		kb_options = "",
+		kb_rules = "",
 
-        follow_mouse = 1,
+		follow_mouse = 1,
 
-        sensitivity = 0,
+		sensitivity = 0,
 
-        touchpad = {
-            natural_scroll = false,
-        },
-    },
-
+		touchpad = {
+			natural_scroll = false,
+		},
+	},
 })
-
 
 -- ==============================================================
 -- THREE-FINGER WORKSPACE GESTURE
 -- ==============================================================
 
 hl.gesture({
-    fingers = 3,
-    direction = "horizontal",
-    action = "workspace",
+	fingers = 3,
+	direction = "horizontal",
+	action = "workspace",
 })
-
 
 -- ==============================================================
 -- DEVICE
@@ -404,11 +366,9 @@ hl.gesture({
 
 hl.device({
 
-    name = "epic-mouse-v1",
-    sensitivity = -0.5,
-
+	name = "epic-mouse-v1",
+	sensitivity = -0.5,
 })
-
 
 -- ==============================================================
 -- KEYBINDINGS
@@ -416,402 +376,257 @@ hl.device({
 
 local mainMod = "SUPER"
 
-
 -- ==============================================================
 -- APPLICATIONS
 -- ==============================================================
 
 -- Terminal
-hl.bind(
-    mainMod .. " + Q",
-    hl.dsp.exec_cmd(terminal)
-)
-
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
 
 -- File manager
-hl.bind(
-    mainMod .. " + E",
-    hl.dsp.exec_cmd(fileManager)
-)
-
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 
 -- Browser
-hl.bind(
-    mainMod .. " + B",
-    hl.dsp.exec_cmd(browser)
-)
-
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 
 -- Color picker
-hl.bind(
-    mainMod .. " + SHIFT + P",
-    hl.dsp.exec_cmd(picker)
-)
-
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(picker))
 
 -- Application launcher
-hl.bind(
-    mainMod .. " + SPACE",
-    hl.dsp.exec_cmd(menu)
-)
-
+hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 
 -- Lock screen
-hl.bind(
-    mainMod .. " + L",
-    hl.dsp.exec_cmd("hyprlock")
-)
-
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
 -- ==============================================================
 -- WINDOW MANAGEMENT
 -- ==============================================================
 
 -- Close window
-hl.bind(
-    mainMod .. " + C",
-    hl.dsp.window.close()
-)
-
+hl.bind(mainMod .. " + C", hl.dsp.window.close())
 
 -- Toggle floating
 hl.bind(
-    mainMod .. " + V",
-    hl.dsp.window.float({
-        action = "toggle",
-    })
+	mainMod .. " + V",
+	hl.dsp.window.float({
+		action = "toggle",
+	})
 )
-
 
 -- Toggle pseudo
-hl.bind(
-    mainMod .. " + P",
-    hl.dsp.window.pseudo()
-)
-
+hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 
 -- Toggle split
-hl.bind(
-    mainMod .. " + J",
-    hl.dsp.layout("togglesplit")
-)
-
+hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 
 -- ==============================================================
 -- FOCUS
 -- ==============================================================
 
 hl.bind(
-    mainMod .. " + LEFT",
-    hl.dsp.focus({
-        direction = "left",
-    })
+	mainMod .. " + LEFT",
+	hl.dsp.focus({
+		direction = "left",
+	})
 )
-
 
 hl.bind(
-    mainMod .. " + RIGHT",
-    hl.dsp.focus({
-        direction = "right",
-    })
+	mainMod .. " + RIGHT",
+	hl.dsp.focus({
+		direction = "right",
+	})
 )
-
 
 hl.bind(
-    mainMod .. " + UP",
-    hl.dsp.focus({
-        direction = "up",
-    })
+	mainMod .. " + UP",
+	hl.dsp.focus({
+		direction = "up",
+	})
 )
-
 
 hl.bind(
-    mainMod .. " + DOWN",
-    hl.dsp.focus({
-        direction = "down",
-    })
+	mainMod .. " + DOWN",
+	hl.dsp.focus({
+		direction = "down",
+	})
 )
-
 
 -- ==============================================================
 -- SCREENSHOT
 -- ==============================================================
 
 hl.bind(
-    "Print",
-    hl.dsp.exec_cmd(
-        'mkdir -p "$HOME/Pictures/Screenshots" && ' ..
-        'grim - | satty -f - --copy-command wl-copy ' ..
-        '-o "$HOME/Pictures/Screenshots/%Y%m%d_%H%M%S.png"'
-    )
+	"Print",
+	hl.dsp.exec_cmd(
+		'mkdir -p "$HOME/Pictures/Screenshots" && '
+			.. "grim - | satty -f - --copy-command wl-copy "
+			.. '-o "$HOME/Pictures/Screenshots/%Y%m%d_%H%M%S.png"'
+	)
 )
-
 
 -- ==============================================================
 -- EXIT / LOGOUT
 -- ==============================================================
 
 -- Direct exit
-hl.bind(
-    mainMod .. " + ALT + L",
-    hl.dsp.exit()
-)
-
+hl.bind(mainMod .. " + ALT + L", hl.dsp.exit())
 
 -- Prefer hyprshutdown when available
 hl.bind(
-    mainMod .. " + M",
-    hl.dsp.exec_cmd(
-        "command -v hyprshutdown >/dev/null 2>&1 && " ..
-        "hyprshutdown || hyprctl dispatch exit"
-    )
+	mainMod .. " + M",
+	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && " .. "hyprshutdown || hyprctl dispatch exit")
 )
-
 
 -- ==============================================================
 -- RELOAD
 -- ==============================================================
 
-hl.bind(
-    mainMod .. " + SHIFT + R",
-    hl.dsp.exec_cmd("hyprctl reload")
-)
-
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
 
 -- ==============================================================
 -- WORKSPACES
 -- ==============================================================
 
 for i = 1, 10 do
+	local key = i % 10
 
-    local key = i % 10
+	-- Switch workspace
+	hl.bind(
+		mainMod .. " + " .. key,
+		hl.dsp.focus({
+			workspace = i,
+		})
+	)
 
-    -- Switch workspace
-    hl.bind(
-        mainMod .. " + " .. key,
-        hl.dsp.focus({
-            workspace = i,
-        })
-    )
-
-    -- Move window to workspace
-    hl.bind(
-        mainMod .. " + SHIFT + " .. key,
-        hl.dsp.window.move({
-            workspace = i,
-        })
-    )
-
+	-- Move window to workspace
+	hl.bind(
+		mainMod .. " + SHIFT + " .. key,
+		hl.dsp.window.move({
+			workspace = i,
+		})
+	)
 end
-
 
 -- ==============================================================
 -- SPECIAL WORKSPACE / SCRATCHPAD
 -- ==============================================================
 
 -- Toggle scratchpad
-hl.bind(
-    mainMod .. " + S",
-    hl.dsp.workspace.toggle_special("magic")
-)
-
+hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
 
 -- Move active window to scratchpad
 hl.bind(
-    mainMod .. " + SHIFT + S",
-    hl.dsp.window.move({
-        workspace = "special:magic",
-    })
+	mainMod .. " + SHIFT + S",
+	hl.dsp.window.move({
+		workspace = "special:magic",
+	})
 )
-
 
 -- ==============================================================
 -- WORKSPACE SCROLLING
 -- ==============================================================
 
 hl.bind(
-    mainMod .. " + mouse_down",
-    hl.dsp.focus({
-        workspace = "e+1",
-    })
+	mainMod .. " + mouse_down",
+	hl.dsp.focus({
+		workspace = "e+1",
+	})
 )
-
 
 hl.bind(
-    mainMod .. " + mouse_up",
-    hl.dsp.focus({
-        workspace = "e-1",
-    })
+	mainMod .. " + mouse_up",
+	hl.dsp.focus({
+		workspace = "e-1",
+	})
 )
-
 
 -- ==============================================================
 -- MOUSE WINDOW CONTROL
 -- ==============================================================
 
 -- SUPER + Left Mouse
-hl.bind(
-    mainMod .. " + mouse:272",
-    hl.dsp.window.drag(),
-    {
-        mouse = true,
-    }
-)
-
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), {
+	mouse = true,
+})
 
 -- SUPER + Right Mouse
-hl.bind(
-    mainMod .. " + mouse:273",
-    hl.dsp.window.resize(),
-    {
-        mouse = true,
-    }
-)
-
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), {
+	mouse = true,
+})
 
 -- ==============================================================
 -- AUDIO CONTROL
 -- ==============================================================
 
-hl.bind(
-    mainMod .. " + A",
-    function()
-        hl.exec_cmd("pavucontrol")
-    end
-)
-
+hl.bind(mainMod .. " + A", function()
+	hl.exec_cmd("pavucontrol")
+end)
 
 -- ==============================================================
 -- IMAGE VIEWER
 -- ==============================================================
 
-hl.bind(
-    mainMod .. " + I",
-    function()
-        hl.exec_cmd("imv")
-    end
-)
-
+hl.bind(mainMod .. " + I", function()
+	hl.exec_cmd("imv")
+end)
 
 -- ==============================================================
 -- AUDIO
 -- ==============================================================
 
-hl.bind(
-    "XF86AudioRaiseVolume",
-    hl.dsp.exec_cmd(
-        "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-    ),
-    {
-        locked = true,
-        repeating = true,
-    }
-)
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), {
+	locked = true,
+	repeating = true,
+})
 
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), {
+	locked = true,
+	repeating = true,
+})
 
-hl.bind(
-    "XF86AudioLowerVolume",
-    hl.dsp.exec_cmd(
-        "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-    ),
-    {
-        locked = true,
-        repeating = true,
-    }
-)
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), {
+	locked = true,
+	repeating = true,
+})
 
-
-hl.bind(
-    "XF86AudioMute",
-    hl.dsp.exec_cmd(
-        "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    ),
-    {
-        locked = true,
-        repeating = true,
-    }
-)
-
-
-hl.bind(
-    "XF86AudioMicMute",
-    hl.dsp.exec_cmd(
-        "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-    ),
-    {
-        locked = true,
-        repeating = true,
-    }
-)
-
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), {
+	locked = true,
+	repeating = true,
+})
 
 -- ==============================================================
 -- BRIGHTNESS
 -- ==============================================================
 
-hl.bind(
-    "XF86MonBrightnessUp",
-    hl.dsp.exec_cmd(
-        "brightnessctl -e4 -n2 set 5%+"
-    ),
-    {
-        locked = true,
-        repeating = true,
-    }
-)
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), {
+	locked = true,
+	repeating = true,
+})
 
-
-hl.bind(
-    "XF86MonBrightnessDown",
-    hl.dsp.exec_cmd(
-        "brightnessctl -e4 -n2 set 5%-"
-    ),
-    {
-        locked = true,
-        repeating = true,
-    }
-)
-
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), {
+	locked = true,
+	repeating = true,
+})
 
 -- ==============================================================
 -- MEDIA KEYS
 -- ==============================================================
 
-hl.bind(
-    "XF86AudioNext",
-    hl.dsp.exec_cmd("playerctl next"),
-    {
-        locked = true,
-    }
-)
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), {
+	locked = true,
+})
 
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), {
+	locked = true,
+})
 
-hl.bind(
-    "XF86AudioPrev",
-    hl.dsp.exec_cmd("playerctl previous"),
-    {
-        locked = true,
-    }
-)
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), {
+	locked = true,
+})
 
-
-hl.bind(
-    "XF86AudioPlay",
-    hl.dsp.exec_cmd("playerctl play-pause"),
-    {
-        locked = true,
-    }
-)
-
-
-hl.bind(
-    "XF86AudioPause",
-    hl.dsp.exec_cmd("playerctl play-pause"),
-    {
-        locked = true,
-    }
-)
-
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), {
+	locked = true,
+})
 
 -- ==============================================================
 -- WINDOW RULES
@@ -821,19 +636,17 @@ hl.bind(
 -- This is intentionally global.
 local suppressMaximizeRule = hl.window_rule({
 
-    name = "suppress-maximize-events",
+	name = "suppress-maximize-events",
 
-    match = {
-        class = ".*",
-    },
+	match = {
+		class = ".*",
+	},
 
-    suppress_event = "maximize",
+	suppress_event = "maximize",
 })
-
 
 -- To disable this rule later:
 -- suppressMaximizeRule:set_enabled(false)
-
 
 -- ==============================================================
 -- XWAYLAND DRAG FIX
@@ -841,24 +654,22 @@ local suppressMaximizeRule = hl.window_rule({
 
 hl.window_rule({
 
-    name = "fix-xwayland-drags",
+	name = "fix-xwayland-drags",
 
-    match = {
+	match = {
 
-        class = "^$",
-        title = "^$",
+		class = "^$",
+		title = "^$",
 
-        xwayland = true,
-        float = true,
+		xwayland = true,
+		float = true,
 
-        fullscreen = false,
-        pin = false,
-    },
+		fullscreen = false,
+		pin = false,
+	},
 
-    no_focus = true,
-
+	no_focus = true,
 })
-
 
 -- ==============================================================
 -- HYPRLAND RUN
@@ -866,18 +677,16 @@ hl.window_rule({
 
 hl.window_rule({
 
-    name = "move-hyprland-run",
+	name = "move-hyprland-run",
 
-    match = {
-        class = "hyprland-run",
-    },
+	match = {
+		class = "hyprland-run",
+	},
 
-    move = {
-        "20",
-        "monitor_h-120",
-    },
+	move = {
+		"20",
+		"monitor_h-120",
+	},
 
-    float = true,
-
+	float = true,
 })
-
