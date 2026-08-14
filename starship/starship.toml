@@ -1,53 +1,97 @@
+# ============================================================
+# RAIYAN // HACKER STARSHIP
+# ============================================================
 
 add_newline = false
 
 format = """
-[╭─](bold green)[](bold blue) \
-[ $username](bold green)\
-[@](dimmed green)\
-$hostname\
-[ :: ](dimmed green)\
-$directory\
-$git_branch\
-$git_status
+[╭─](bold green)[\\[](bold green)$username[@](bold green)$hostname[\\]](bold green)[─](bold green)[\\[](bold green)$directory[\\]](bold green)$git_branch$git_status
 [╰─](bold green)$character"""
+
+# ============================================================
+# USER
+# ============================================================
 
 [username]
 show_always = true
-style_user = "bold bright-green"
+style_user = "bold green"
+style_root = "bold red"
 format = "[$user]($style)"
+
+# ============================================================
+# HOST
+# ============================================================
 
 [hostname]
 ssh_only = false
-style = "bold bright-green"
+style = "bold green"
 format = "[$hostname]($style)"
 
+# ============================================================
+# DIRECTORY
+# ============================================================
+
 [directory]
-style = "bold bright-cyan"
-format = "[$path]($style)"
-truncation_length = 4
-truncation_symbol = "…/"
+style = "bold green"
+format = "─[\\[$path\\]]($style)"
+truncation_length = 3
+truncate_to_repo = false
+home_symbol = "~"
+
+# ============================================================
+# GIT
+# ============================================================
 
 [git_branch]
-symbol = " ⌁ "
-style = "bold bright-magenta"
-format = "[$symbol$branch]($style)"
+symbol = "󰊢 "
+style = "bold green"
+format = "─[\\[$symbol$branch\\]]($style)"
 
 [git_status]
-style = "bold bright-red"
-format = " [$all_status$ahead_behind]($style)"
+style = "bold green"
+format = "[$all_status$ahead_behind]($style)"
+
+conflicted = "!"
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"
+up_to_date = ""
+untracked = "?"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+
+# ============================================================
+# PROMPT
+# ============================================================
 
 [character]
-success_symbol = "[❯](bold bright-green)"
-error_symbol = "[✘](bold bright-red)"
-vimcmd_symbol = "[❮](bold bright-cyan)"
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold green)"
+
+# ============================================================
+# DISABLE UNNECESSARY MODULES
+# ============================================================
 
 [cmd_duration]
-min_time = 1000
-format = " [◄ $duration](bold yellow)"
+disabled = true
 
-[time]
-disabled = false
-format = " [󰥔 $time](dimmed green)"
-time_format = "%H:%M:%S"
+[package]
+disabled = true
 
+[nodejs]
+disabled = true
+
+[python]
+disabled = true
+
+[rust]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[sudo]
+disabled = true
