@@ -1,35 +1,35 @@
 /* ============================================================
-   SWAYNC — Minimal / Clean
+   SWAYNC — Minimal / Clean / Black & White
    ============================================================ */
 
 :root {
-  --cc-bg: #0a161f;
+  --cc-bg: rgba(0, 0, 0, 0.80);
 
-  --noti-border-color: rgba(148, 188, 251, 0.18);
+  --noti-border-color: rgba(255, 255, 255, 0.15);
 
-  --noti-bg: 49, 50, 68;
-  --noti-bg-alpha: 0.92;
+  --noti-bg: 0, 0, 0;
+  --noti-bg-alpha: 0.80;
 
-  --noti-bg-darker: rgb(24, 24, 37);
-  --noti-bg-hover: rgb(69, 71, 90);
-  --noti-bg-focus: rgba(69, 71, 90, 0.55);
+  --noti-bg-darker: rgb(15, 15, 15);
+  --noti-bg-hover: rgb(35, 35, 35);
+  --noti-bg-focus: rgba(255, 255, 255, 0.08);
 
-  --noti-close-bg: rgb(69, 71, 90);
-  --noti-close-bg-hover: rgb(243, 139, 168);
+  --noti-close-bg: rgb(35, 35, 35);
+  --noti-close-bg-hover: rgb(255, 255, 255);
 
-  --text-color: rgb(205, 214, 244);
-  --text-color-disabled: rgb(127, 132, 156);
+  --text-color: rgb(255, 255, 255);
+  --text-color-disabled: rgb(140, 140, 140);
 
-  --bg-selected: rgb(137, 180, 250);
+  --bg-selected: rgb(255, 255, 255);
 
   --notification-icon-size: 48px;
   --notification-app-icon-size: 16px;
   --notification-group-icon-size: 28px;
 
   --border: 1px solid var(--noti-border-color);
-  --border-radius: 12px;
+  --border-radius: 10px;
 
-  --notification-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  --notification-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
 
   --font-size-body: 13px;
   --font-size-summary: 14px;
@@ -39,29 +39,32 @@
   --group-collapse-transition: opacity 250ms ease-in-out;
 }
 
+
 /* ============================================================
    GTK FALLBACK COLORS
    ============================================================ */
 
-@define-color cc-bg rgba(30, 30, 46, 0.94);
-@define-color noti-border-color rgba(137, 180, 250, 0.18);
+@define-color cc-bg rgba(0, 0, 0, 0.80);
 
-@define-color noti-bg rgba(49, 50, 68, 0.92);
-@define-color noti-bg-opaque rgb(49, 50, 68);
+@define-color noti-border-color rgba(255, 255, 255, 0.15);
 
-@define-color noti-bg-darker rgb(24, 24, 37);
-@define-color noti-bg-hover rgb(69, 71, 90);
-@define-color noti-bg-hover-opaque rgb(69, 71, 90);
+@define-color noti-bg rgba(0, 0, 0, 0.80);
+@define-color noti-bg-opaque rgb(0, 0, 0);
 
-@define-color noti-bg-focus rgba(69, 71, 90, 0.55);
+@define-color noti-bg-darker rgb(15, 15, 15);
+@define-color noti-bg-hover rgb(35, 35, 35);
+@define-color noti-bg-hover-opaque rgb(35, 35, 35);
 
-@define-color noti-close-bg rgba(69, 71, 90, 0.9);
-@define-color noti-close-bg-hover rgba(243, 139, 168, 0.9);
+@define-color noti-bg-focus rgba(255, 255, 255, 0.08);
 
-@define-color text-color rgb(205, 214, 244);
-@define-color text-color-disabled rgb(127, 132, 156);
+@define-color noti-close-bg rgba(35, 35, 35, 0.90);
+@define-color noti-close-bg-hover rgba(255, 255, 255, 0.95);
 
-@define-color bg-selected rgb(137, 180, 250);
+@define-color text-color rgb(255, 255, 255);
+@define-color text-color-disabled rgb(140, 140, 140);
+
+@define-color bg-selected rgb(255, 255, 255);
+
 
 /* ============================================================
    WINDOWS
@@ -71,6 +74,7 @@ notificationwindow,
 blankwindow {
   background: transparent;
 }
+
 
 /* ============================================================
    CLOSE BUTTON
@@ -95,8 +99,9 @@ blankwindow {
 
 .close-button:hover {
   background: var(--noti-close-bg-hover);
-  color: #1e1e2e;
+  color: #000000;
 }
+
 
 /* ============================================================
    NOTIFICATION ROW
@@ -115,12 +120,16 @@ blankwindow {
   padding: 5px 8px;
 }
 
+
 /* ============================================================
    NOTIFICATION
    ============================================================ */
 
 .notification-row .notification-background .notification {
-  background: rgba(var(--noti-bg), var(--noti-bg-alpha));
+  background: rgba(
+    var(--noti-bg),
+    var(--noti-bg-alpha)
+  );
 
   border: var(--border);
   border-radius: var(--border-radius);
@@ -132,14 +141,15 @@ blankwindow {
   transition: var(--hover-transition);
 }
 
+
 /* ============================================================
    DEFAULT ACTION
    ============================================================ */
 
 .notification-row
-  .notification-background
-  .notification
-  .notification-default-action {
+.notification-background
+.notification
+.notification-default-action {
   background: transparent;
 
   border: none;
@@ -155,11 +165,12 @@ blankwindow {
 }
 
 .notification-row
-  .notification-background
-  .notification
-  .notification-default-action:hover {
+.notification-background
+.notification
+.notification-default-action:hover {
   background: var(--noti-bg-hover);
 }
+
 
 /* ============================================================
    NOTIFICATION CONTENT
@@ -170,6 +181,7 @@ blankwindow {
   border-radius: var(--border-radius);
   padding: 2px;
 }
+
 
 /* ============================================================
    ICONS
@@ -188,6 +200,7 @@ blankwindow {
 
   margin: 4px;
 }
+
 
 /* ============================================================
    TEXT
@@ -226,6 +239,7 @@ blankwindow {
   background: transparent;
 }
 
+
 /* ============================================================
    INLINE REPLY
    ============================================================ */
@@ -253,6 +267,7 @@ blankwindow {
 .inline-reply-button:hover {
   background: var(--noti-bg-hover);
 }
+
 
 /* ============================================================
    ACTION BUTTONS
@@ -287,6 +302,7 @@ blankwindow {
   background: var(--noti-bg-hover);
 }
 
+
 /* ============================================================
    GROUPS
    ============================================================ */
@@ -316,20 +332,21 @@ blankwindow {
 }
 
 .notification-group.collapsed
-  .notification-row:not(:last-child)
-  .notification-action,
+.notification-row:not(:last-child)
+.notification-action,
 .notification-group.collapsed
-  .notification-row:not(:last-child)
-  .notification-default-action {
+.notification-row:not(:last-child)
+.notification-default-action {
   opacity: 0;
 }
+
 
 /* ============================================================
    CONTROL CENTER
    ============================================================ */
 
 .control-center {
-  background: var(--cc-bg);
+  background: rgba(0, 0, 0, 0.80);
   color: var(--text-color);
 
   border: 1px solid var(--noti-border-color);
@@ -337,7 +354,7 @@ blankwindow {
 
   padding: 6px;
 
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
 }
 
 .control-center .control-center-list {
@@ -353,6 +370,7 @@ blankwindow {
   box-shadow: none;
 }
 
+
 /* ============================================================
    FLOATING NOTIFICATIONS
    ============================================================ */
@@ -362,8 +380,9 @@ blankwindow {
 }
 
 .floating-notifications .notification {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
 }
+
 
 /* ============================================================
    WIDGETS
@@ -375,6 +394,7 @@ blankwindow {
 
   border-radius: 10px;
 }
+
 
 /* ============================================================
    TITLE
@@ -395,7 +415,7 @@ blankwindow {
   background: var(--noti-bg);
   color: var(--text-color);
 
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
 
   padding: 5px 9px;
@@ -403,8 +423,9 @@ blankwindow {
 
 .widget-title > button:hover {
   background: var(--bg-selected);
-  color: #1e1e2e;
+  color: #000000;
 }
+
 
 /* ============================================================
    DO NOT DISTURB
@@ -435,6 +456,7 @@ blankwindow {
   border-radius: 50%;
 }
 
+
 /* ============================================================
    LABEL
    ============================================================ */
@@ -443,6 +465,7 @@ blankwindow {
   font-size: 13px;
   color: var(--text-color);
 }
+
 
 /* ============================================================
    MPRIS
@@ -467,7 +490,7 @@ blankwindow {
 .widget-mpris .mpris-overlay {
   padding: 10px;
 
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.55);
 }
 
 .widget-mpris .mpris-overlay button:hover {
@@ -490,6 +513,7 @@ blankwindow {
   color: var(--text-color-disabled);
 }
 
+
 /* ============================================================
    BUTTON GRID
    ============================================================ */
@@ -497,13 +521,15 @@ blankwindow {
 .widget-buttons-grid flowboxchild > button {
   background: var(--noti-bg);
 
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: 9px;
 
   min-width: 38px;
   min-height: 38px;
 
   margin: 3px;
+
+  color: var(--text-color);
 }
 
 .widget-buttons-grid flowboxchild > button:hover {
@@ -512,8 +538,9 @@ blankwindow {
 
 .widget-buttons-grid flowboxchild > button.toggle:checked {
   background: var(--bg-selected);
-  color: #1e1e2e;
+  color: #000000;
 }
+
 
 /* ============================================================
    VOLUME
@@ -526,6 +553,7 @@ blankwindow {
 .widget-volume row image {
   -gtk-icon-size: 22px;
 }
+
 
 /* ============================================================
    SLIDERS
@@ -556,6 +584,7 @@ scale slider {
   border-radius: 50%;
 }
 
+
 /* ============================================================
    SCROLLBAR
    ============================================================ */
@@ -565,7 +594,7 @@ scrollbar {
 }
 
 scrollbar slider {
-  background: rgba(166, 173, 200, 0.35);
+  background: rgba(255, 255, 255, 0.25);
 
   border-radius: 8px;
 
@@ -573,8 +602,9 @@ scrollbar slider {
 }
 
 scrollbar slider:hover {
-  background: rgba(137, 180, 250, 0.7);
+  background: rgba(255, 255, 255, 0.55);
 }
+
 
 /* ============================================================
    INHIBITORS

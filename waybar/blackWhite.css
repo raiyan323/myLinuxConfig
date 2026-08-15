@@ -1,0 +1,112 @@
+* {
+  font-family: monospace;
+  font-size: 13px;
+  color: #ffffff;
+}
+
+/* Main bar */
+window#waybar {
+  background: rgba(0, 0, 0, 0.65);
+  border: none;
+}
+
+/* Arch */
+#custom-arch {
+  font-size: 17px;
+  padding: 0 11px;
+  margin-right: 2px;
+  color: #ffffff;
+}
+
+/* Workspaces */
+#workspaces button {
+  min-width: 22px;
+  padding: 0 0px;
+  margin: 0 0px;
+
+  color: #555555;
+  background: transparent;
+
+  border: none;
+  border-radius: 0px;
+}
+
+#workspaces button label {
+  color: #555555;
+}
+
+#workspaces button.active {
+  color: #000000;
+  background: #ffffff;
+}
+
+#workspaces button.active label {
+  color: #000000;
+}
+
+#workspaces button:hover {
+  color: #aaaaaa;
+  background: transparent;
+}
+
+#workspaces button:hover label {
+  color: #aaaaaa;
+}
+
+#workspaces button.active:hover {
+  color: #000000;
+  background: #ffffff;
+}
+
+#workspaces button.active:hover label {
+  color: #000000;
+}
+
+/* Center clock */
+#clock {
+  padding: 0 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Right-side modules */
+#cpu,
+#memory,
+#pulseaudio,
+#network,
+#battery {
+  padding: 0 10px;
+  margin: 0 1px;
+
+  background: transparent;
+}
+
+/* Subtle separation */
+#cpu {
+  margin-left: 4px;
+}
+
+#battery {
+  margin-right: 4px;
+}
+
+/* Hover */
+#cpu:hover,
+#memory:hover,
+#pulseaudio:hover,
+#network:hover,
+#battery:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Tooltips */
+tooltip {
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid #ffffff;
+  border-radius: 2px;
+}
+
+tooltip label {
+  color: #ffffff;
+  padding: 2px 4px;
+}
