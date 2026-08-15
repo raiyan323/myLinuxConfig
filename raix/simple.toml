@@ -1,0 +1,245 @@
+[bar]
+
+width = 1370
+height = 20
+position = "top"
+margin_top = 0
+margin_bottom = 0
+margin_left = 0
+margin_right = 0
+exclusive_zone = 30
+layer = "top"
+keyboard_mode = "none"
+
+
+
+[style]
+
+bar_background = "#000000"
+bar_opacity = 0.8
+bar_border_color = "transparent"
+bar_border_width = 0
+bar_radius = 0
+module_background = "transparent"
+module_hover_background = "rgba(255,255,255,0.10)"
+module_opacity = 1.0
+module_border_color = "rgba(255,255,255,0.08)"
+module_border_width = 0
+module_radius = 9
+module_padding_left = 10
+module_padding_right = 10
+module_padding_top = 10
+module_padding_bottom = 10
+module_width = 0
+module_height = 0
+text_color = "#ffffff"
+muted_color = "#a1a1aa"
+accent_color = "#ffffff"
+
+
+
+[font]
+
+family = "JetBrainsMono Nerd Font"
+size = 12
+weight = 600
+logo_size = 17
+workspace_size = 12
+
+
+
+[spacing]
+
+zone = 0
+module = 4
+horizontal = 10
+vertical = 3
+bar_horizontal = 5
+bar_vertical = 4
+
+
+
+[layout]
+
+left = [
+    "logo",
+    "workspaces",
+    "custom.arch"
+]
+
+center = [
+    "clock"
+]
+
+right = [
+    "cpu",
+    "ram",
+    "network",
+    "volume",
+    "battery"
+]
+
+[custom."arch"]
+
+enabled = true
+format = "Terminal"
+interval = 5000
+left_click = "kitty"
+right_click = ""
+middle_click = ""
+background = "transparent"
+hover_background = "rgba(255,255,255,0.10)"
+padding_left = 10
+padding_right = 10
+width = 0
+height = 20
+radius = 9
+
+
+
+[logo]
+
+enabled = true
+icon_enabled = true
+icon = ""
+icon_color = "#ffffff"
+left_click = "raix"
+background = "transparent"
+hover_background = "transparent" 
+padding = 9
+radius = 9
+width = 0
+height = 0
+
+
+
+[logo_text]
+
+enabled = false
+text = "Raix"
+color = "#ffffff"
+background = "transparent"
+hover_background = "transparent"
+padding = 9
+radius = 9
+width = 0
+height = 0
+
+
+
+[workspaces]
+
+enabled = true
+numbers = [1, 2, 3]
+show_empty = true
+format = "{id}"
+padding = 9
+border_width = 0
+gap = 2
+width = 0
+height = 10
+scroll_switch = true
+left_click = "hyprctl dispatch workspace {id}"
+right_click = ""
+middle_click = ""
+interval = 500
+
+
+
+[clock]
+
+enabled = true
+format = "󰥔  %a  %d %b  •  %H:%M"
+color = "#ffffff"
+interval = 1000
+font_size = 12
+font_weight = 800
+padding = 12
+radius = 9
+background = "transparent"
+hover_background = "rgba(255,255,255,0.12)"
+border_color = "rgba(255,255,255,0.10)"
+border_width = 0
+left_click = ""
+right_click = ""
+middle_click = ""
+
+
+
+[cpu]
+
+enabled = true
+format = "{icon}  {value}%"
+icon = "󰍛"
+height = 20
+color = "#ffffff"
+interval = 1000
+tooltip = "CPU Usage"
+left_click = "kitty -e btop"
+right_click = ""
+middle_click = ""
+scroll_up = ""
+scroll_down = ""
+
+
+[ram]
+
+enabled = true
+format = "{icon}  {value}%"
+icon = "󰘚"
+color = "#ffffff"
+interval = 1000
+tooltip = "Memory Usage"
+left_click = "kitty -e btop"
+right_click = ""
+middle_click = ""
+scroll_up = ""
+scroll_down = ""
+
+
+
+[network]
+
+enabled = true
+format = "{icon}  {value}"
+icon = "󰖩"
+color = "#ffffff"
+interval = 1000
+tooltip = "Network"
+left_click = "nm-connection-editor"
+right_click = "kitty -e nmtui"
+middle_click = ""
+scroll_up = ""
+scroll_down = ""
+
+
+
+[volume]
+
+enabled = true
+format = "{icon}  {value}%"
+icon = "󰕾"
+color = "#ffffff"
+interval = 500
+tooltip = "Audio Volume"
+left_click = "pavucontrol"
+right_click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+middle_click = ""
+scroll_up = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
+scroll_down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+
+
+
+[battery]
+
+enabled = false
+format = "{icon}  {value}%"
+icon = "󰁹"
+color = "#ffffff"
+interval = 5000
+tooltip = "Battery"
+left_click = ""
+right_click = ""
+middle_click = ""
+scroll_up = ""
+scroll_down = ""

@@ -1,12 +1,29 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
 # ============================================================
-# RAIYAN // HACKER STARSHIP
+# RAIYAN // ARCH MODERN HACKER
 # ============================================================
 
 add_newline = false
 
 format = """
-[╭─](bold green)[\\[](bold green)$username[@](bold green)$hostname[\\]](bold green)[─](bold green)[\\[](bold green)$directory[\\]](bold green)$git_branch$git_status
-[╰─](bold green)$character"""
+[┌─](bold green)[\\[](bold green)$username$hostname[\\]](bold green)[ :: ](dimmed green)[\\[](dimmed green)$directory$git_branch$git_status[\\]](dimmed green)
+[└─](bold green)$character"""
+
+palette = "hacker"
+
+# ============================================================
+# COLORS
+# ============================================================
+
+[palettes.hacker]
+green = "#00ff66"
+cyan = "#00e5ff"
+purple = "#b56cff"
+yellow = "#d7ff00"
+red = "#ff3b3b"
+white = "#e6e6e6"
+gray = "#666666"
 
 # ============================================================
 # USER
@@ -16,7 +33,7 @@ format = """
 show_always = true
 style_user = "bold green"
 style_root = "bold red"
-format = "[$user]($style)"
+format = "[ 󰣇 $user@]($style)"
 
 # ============================================================
 # HOST
@@ -25,18 +42,26 @@ format = "[$user]($style)"
 [hostname]
 ssh_only = false
 style = "bold green"
-format = "[$hostname]($style)"
+format = "[$hostname ]($style)"
 
 # ============================================================
 # DIRECTORY
 # ============================================================
 
 [directory]
-style = "bold green"
-format = "─[\\[$path\\]]($style)"
+style = "bold cyan"
+format = "[$path]($style)"
 truncation_length = 3
-truncate_to_repo = false
+truncate_to_repo = true
 home_symbol = "~"
+read_only = " "
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
 
 # ============================================================
 # GIT
@@ -44,23 +69,103 @@ home_symbol = "~"
 
 [git_branch]
 symbol = "󰊢 "
-style = "bold green"
-format = "─[\\[$symbol$branch\\]]($style)"
+style = "bold purple"
+format = "[ $symbol$branch]($style)"
 
 [git_status]
-style = "bold green"
+style = "bold yellow"
 format = "[$all_status$ahead_behind]($style)"
 
 conflicted = "!"
-ahead = "⇡"
-behind = "⇣"
-diverged = "⇕"
+ahead = " ⇡"
+behind = " ⇣"
+diverged = " ⇕"
+untracked = " ?"
+modified = " !"
+staged = " +"
+renamed = " »"
+deleted = " ✘"
 up_to_date = ""
-untracked = "?"
-modified = "!"
-staged = "+"
-renamed = "»"
-deleted = "✘"
+
+# ============================================================
+# LANGUAGES
+# ============================================================
+
+[c]
+symbol = " "
+style = "bold cyan"
+format = "[$symbol$version]($style) "
+
+[cpp]
+symbol = " "
+style = "bold cyan"
+format = "[$symbol$version]($style) "
+
+[rust]
+symbol = " "
+style = "bold yellow"
+format = "[$symbol$version]($style) "
+
+[golang]
+symbol = " "
+style = "bold cyan"
+format = "[$symbol$version]($style) "
+
+[nodejs]
+symbol = " "
+style = "bold green"
+format = "[$symbol$version]($style) "
+
+[bun]
+symbol = " "
+style = "bold green"
+format = "[$symbol$version]($style) "
+
+[python]
+symbol = " "
+style = "bold yellow"
+format = "[$symbol$version]($style) "
+
+[php]
+symbol = " "
+style = "bold purple"
+format = "[$symbol$version]($style) "
+
+[java]
+symbol = " "
+style = "bold red"
+format = "[$symbol$version]($style) "
+
+[kotlin]
+symbol = " "
+style = "bold purple"
+format = "[$symbol$version]($style) "
+
+[haskell]
+symbol = " "
+style = "bold purple"
+format = "[$symbol$version]($style) "
+
+# ============================================================
+# DOCKER
+# ============================================================
+
+[docker_context]
+symbol = " "
+style = "bold cyan"
+format = "[$symbol$context]($style) "
+
+# ============================================================
+# CONDA / PIXI
+# ============================================================
+
+[conda]
+style = "bold green"
+format = "[conda:$environment]($style) "
+
+[pixi]
+style = "bold green"
+format = "[pixi:$environment]($style) "
 
 # ============================================================
 # PROMPT
@@ -69,11 +174,20 @@ deleted = "✘"
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol = "[❯](bold red)"
-vimcmd_symbol = "[❮](bold green)"
+vimcmd_symbol = "[❮](bold cyan)"
+vimcmd_replace_one_symbol = "[❮](bold purple)"
+vimcmd_replace_symbol = "[❮](bold purple)"
+vimcmd_visual_symbol = "[❮](bold yellow)"
 
 # ============================================================
-# DISABLE UNNECESSARY MODULES
+# DISABLED / CLEAN
 # ============================================================
+
+[os]
+disabled = true
+
+[time]
+disabled = true
 
 [cmd_duration]
 disabled = true
@@ -81,17 +195,14 @@ disabled = true
 [package]
 disabled = true
 
-[nodejs]
-disabled = true
-
-[python]
-disabled = true
-
-[rust]
-disabled = true
-
-[docker_context]
-disabled = true
-
 [sudo]
 disabled = true
+
+[jobs]
+disabled = true
+
+[status]
+disabled = true
+
+[line_break]
+disabled = false
