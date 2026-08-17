@@ -1,17 +1,72 @@
-# ~/.config/ghostty/config
+# ~/.config/ghostty/config.ghostty
 
-background = #0b0b12
-foreground = #d8d8ff
-cursor-color = #b98cff
-selection-background = #302050
+# ╭──────────────────────────────────────────────╮
+# │              GHOSTTY — CYBER NIGHT           │
+# ╰──────────────────────────────────────────────╯
 
+# ── Font ────────────────────────────────────────
 font-family = JetBrainsMono Nerd Font
 font-size = 12
 
-window-padding-x = 12
-window-padding-y = 12
-background-opacity = 0.92
+font-feature = +liga
+font-feature = +calt
 
+# ── Colors ──────────────────────────────────────
+background = #000000
+foreground = #d7e3ff
+
+cursor-color = #67e8f9
+cursor-opacity = 0.9
+
+selection-background = #17334a
+selection-foreground = #dffbff
+
+# ── ANSI palette ────────────────────────────────
+palette = 0=#070a0f
+palette = 1=#ff5c7a
+palette = 2=#7ee787
+palette = 3=#f2cc60
+palette = 4=#79c0ff
+palette = 5=#d2a8ff
+palette = 6=#67e8f9
+palette = 7=#c9d1d9
+
+palette = 8=#30363d
+palette = 9=#ff7b93
+palette = 10=#9be9a8
+palette = 11=#f8e3a1
+palette = 12=#a5d6ff
+palette = 13=#e2c5ff
+palette = 14=#a5f3fc
+palette = 15=#f0f6fc
+
+# ── Window ──────────────────────────────────────
+background-opacity = 0.90
+
+window-padding-x = 14
+window-padding-y = 12
+
+window-decoration = false
+window-theme = dark
+
+# ── Cursor ───────────────────────────────────────
+cursor-style = block
+cursor-style-blink = true
+
+# ── Scrollback ──────────────────────────────────
+scrollback-limit = 10000
+
+# ── Shell ────────────────────────────────────────
 shell-integration = detect
 
-command = fastfetch
+# ── Mouse ────────────────────────────────────────
+mouse-hide-while-typing = true
+
+# ── Clipboard ───────────────────────────────────
+copy-on-select = false
+
+# ── Bell ─────────────────────────────────────────
+bell-features = no-audio
+
+# ── Performance ─────────────────────────────────
+gtk-single-instance = true
