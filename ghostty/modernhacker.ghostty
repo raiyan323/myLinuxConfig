@@ -1,0 +1,95 @@
+# ~/.config/ghostty/config.ghostty
+
+# ╭──────────────────────────────────────────────╮
+# │            GHOSTTY — MODERN HACKER           │
+# ╰──────────────────────────────────────────────╯
+
+
+# ── Font ────────────────────────────────────────
+
+font-family = JetBrainsMono Nerd Font
+font-size = 12
+
+font-feature = +liga
+font-feature = +calt
+
+
+# ── Core Colors ─────────────────────────────────
+
+background = #000000
+foreground = #63e6be
+
+cursor-color = #39ff88
+cursor-opacity = 0.95
+
+selection-background = #10352f
+selection-foreground = #a7fff0
+
+
+# ── ANSI Palette ────────────────────────────────
+# Green / Cyan focused, other colors kept muted
+
+palette = 0=#000000
+palette = 1=#8f4545
+palette = 2=#32c76b
+palette = 3=#8f9848
+palette = 4=#347f91
+palette = 5=#705687
+palette = 6=#22d3ee
+palette = 7=#9de8c5
+
+palette = 8=#15201c
+palette = 9=#ff5f5f
+palette = 10=#39ff88
+palette = 11=#c7e86b
+palette = 12=#4dcfff
+palette = 13=#a878ff
+palette = 14=#67f7ff
+palette = 15=#d8fff0
+
+
+# ── Window ──────────────────────────────────────
+
+background-opacity = 0.90
+
+window-padding-x = 14
+window-padding-y = 12
+
+window-decoration = false
+window-theme = dark
+
+
+# ── Cursor ──────────────────────────────────────
+
+cursor-style = block
+cursor-style-blink = true
+
+
+# ── Scrollback ─────────────────────────────────
+
+scrollback-limit = 10000
+
+
+# ── Shell ───────────────────────────────────────
+
+shell-integration = detect
+
+
+# ── Mouse ───────────────────────────────────────
+
+mouse-hide-while-typing = true
+
+
+# ── Clipboard ───────────────────────────────────
+
+copy-on-select = false
+
+
+# ── Bell ────────────────────────────────────────
+
+bell-features = no-audio
+
+
+# ── Performance ─────────────────────────────────
+
+gtk-single-instance = true
